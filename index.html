@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.8"
+      integrity="sha384-rgjA7mptc2ETQqXoYC3/zJvkU7K/aP44Y+z7xQuJiVnB/422P/Ak+F/AqFR7E4Wr"
+      crossorigin="anonymous"
+    ></script>
+    <title>HTMX 1st Contact</title>
+  </head>
+  <body
+    style="
+      background-color: #222;
+      color: #f5f5f5;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding-block: 10px;
+      overflow: hidden;
+      max-width: 500px;
+      margin-inline: auto;
+    "
+  >
+    <button
+      hx-get="https://dummyjson.com/users?limit=3"
+      hx-confirm="Are you sure you want to fetch the list of users?"
+      hx-swap="innerHTML"
+      hx-target="#users-list"
+      hx-indicator="#loading-indicator"
+      style="
+        background-color: transparent;
+        border: 1px solid #f5f5f5;
+        border-radius: 4px;
+        color: #f5f5f5;
+        padding-inline: 12px;
+        padding-block: 10px;
+        cursor: pointer;
+      "
+    >
+      Get 3 Users
+    </button>
+    <div id="users-list">
+      <span id="loading-indicator">no users were fetched yet.</span>
+    </div>
+  </body>
+</html>
